@@ -25,3 +25,21 @@ hexo d -g
 
 ### 添加来访统计
 采用`busuanzi`,具体参考[该博文](http://zhiho.github.io/2015/09/29/hexo-next/)
+
+### 添加图片
+*背景：在本地使用资源文件夹添加图片，本地用例如haroopad这种编辑器预览没有问题，但是只要`hexo g`，打开服务器一看就是不显示图片的，也参考了[官网对于插入图片的说明](https://hexo.io/zh-cn/docs/asset-folders.html),但是根本没用，来回折腾了半天，终于通过一行插件搞定了问题*
+安装插件：[CodeFalling-hexo-asset-image](https://github.com/CodeFalling/hexo-asset-image)
+安装办法：`npm install https://github.com/CodeFalling/hexo-asset-image --save`
+在插入图片时，将`image.png`放入博文对应的资源文件夹中，然后在博文中插入`![image-test](blog-test-file/image.png)`即可。
+这时再看生成的代码，就从原来的
+
+```html
+<img src="blog-test-file/image.png" alt="image-test">
+
+```
+变成了
+```html
+<img src="/2016/04/26/blog-test-file/image.png" alt="image-test">
+
+```
+
